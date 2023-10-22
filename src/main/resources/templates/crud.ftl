@@ -13,14 +13,14 @@
          <h1>Gerenciamento de Cidades</h1>
          <p>Um CRUD para criar, alterar, excluir e listar cidades</p>
       </div>
-      <form action="">
+      <form action="/criar" method="POST">
          <div class="form-group">
             <label for="nome">Cidade:</label>
-            <input type="text" class="form-control" placeholder="Informe o nome da cidade" id="nome">
+            <input value="${(cidadeAtual.nome)!}" name="nome" type="text" class="form-control" placeholder="Informe o nome da cidade" id="nome">
          </div>
          <div class="form-group">
             <label for="estado">Estado:</label>
-            <input type="text" class="form-control" placeholder="Informe o estado ao qual a cidade pertence" id="estado">
+            <input value="${(cidadeAtual.estado)!}" name="estado" type="text" class="form-control" placeholder="Informe o estado ao qual a cidade pertence" id="estado">
          </div>
          <button type="submit" class="btn btn-primary">Criar</button>
       </form>
@@ -39,8 +39,8 @@
                   <td>${cidade.estado}</td>
                   <td>
                      <div class="d-flex d-justify-content-center">
-                        <a href="" class="btn btn-warning mr-3">Alterar</a>
-                        <a href="" class="btn btn-danger mr-3">Excluir</a>
+                        <a href="/preparaAlterar?nome=${cidade.nome}&estado=${cidade.estado}"" class="btn btn-warning mr-3">Alterar</a>
+                        <a href="/excluir?nome=${cidade.nome}&estado=${cidade.estado}" class="btn btn-danger mr-3">Excluir</a>
                      </div>
                   </td>
                </tr>
